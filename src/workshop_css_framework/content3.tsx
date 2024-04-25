@@ -11,13 +11,7 @@ import {
   Form,
 } from "antd";
 import { useState } from "react";
-
-const normFile = (e: any) => {
-  if (Array.isArray(e)) {
-    return e;
-  }
-  return e?.fileList;
-};
+import { motion } from "framer-motion";
 
 const onChange3 = (checked: boolean) => {
   console.log(`switch to ${checked}`);
@@ -52,114 +46,61 @@ const content1 = () => {
 
   return (
     <>
-      <div style={{ alignItems: "center", textAlign: "center" }}>
-        <div
-          style={{
-            marginTop: "10px",
-            fontWeight: "bolder",
-            textAlign: "left",
-          }}
-        >
-          Confirm :
-        </div>
-        <div style={{ textAlign: "left", marginTop: "5px" }}>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <p
-              style={{
-                display: "inline-block",
-                color: "red",
-                marginInline: "4px",
-                fontSize: "14px",
-                fontFamily: "SimSun, sans-serif",
-                lineHeight: "1",
-                content: "*",
-              }}
-            >
-              *
-            </p>
-            Birth Date
-          </div>
-          <Form.Item
-            style={{ margin: 0 }}
-            name="birthDate"
-            rules={[
-              {
-                required: true,
-                message: "Please input your Birth Date",
-                type: "date",
-              },
-            ]}
-          >
-            <DatePicker style={{ width: "100%" }} />
-          </Form.Item>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            textAlign: "left",
-            marginTop: "10px",
-          }}
-        >
-          <p
-            style={{
-              display: "inline-block",
-              color: "red",
-              marginInline: "4px",
-              fontSize: "14px",
-              fontFamily: "SimSun, sans-serif",
-              lineHeight: "1",
-              content: "*",
-            }}
-          >
-            *
-          </p>
-          Gender
-          <Form.Item
-            style={{ margin: 0 }}
-            name="radio-group"
-            rules={[
-              {
-                required: true,
-                message: "Please selet your Gender",
-              },
-            ]}
-          >
-            <Radio.Group
-              style={{ paddingLeft: "10px" }}
-              onChange={onChange}
-              value={value}
-            >
-              <Radio value={1}>ชาย</Radio>
-              <Radio value={2}>หญิง</Radio>
-            </Radio.Group>
-          </Form.Item>
-        </div>
-
-        <div style={{ textAlign: "left", marginTop: "10px" }}>งานอดิเรก</div>
-        <div style={{ textAlign: "left", marginTop: "5px" }}>
-          <Checkbox onChange={onCheckAllChange} checked={checkAll}>
-            เลือกทั้งหมด
-          </Checkbox>
-          <Divider />
-          <CheckboxGroup
-            options={plainOptions}
-            value={checkedList}
-            onChange={onChange2}
-          />
-          <Checkbox
-            checked={componentDisabled}
-            onChange={(e) => setComponentDisabled(e.target.checked)}
-          >
-            อื่นๆ
-          </Checkbox>
-          <Form disabled={!componentDisabled}>
-            <Form.Item>
-              <Input placeholder="ระบุ" />
-            </Form.Item>
-          </Form>
+      <motion.div
+        title="General"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 260,
+          damping: 20,
+        }}
+      >
+        <div style={{ alignItems: "center", textAlign: "center" }}>
           <div
             style={{
+              marginTop: "10px",
+              fontWeight: "bolder",
+              textAlign: "left",
+            }}
+          >
+            Confirm :
+          </div>
+          <div style={{ textAlign: "left", marginTop: "5px" }}>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <p
+                style={{
+                  display: "inline-block",
+                  color: "red",
+                  marginInline: "4px",
+                  fontSize: "14px",
+                  fontFamily: "SimSun, sans-serif",
+                  lineHeight: "1",
+                  content: "*",
+                }}
+              >
+                *
+              </p>
+              Birth Date
+            </div>
+            <Form.Item
+              style={{ margin: 0 }}
+              name="birthDate"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input your Birth Date",
+                  type: "date",
+                },
+              ]}
+            >
+              <DatePicker style={{ width: "100%" }} />
+            </Form.Item>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
               textAlign: "left",
               marginTop: "10px",
             }}
@@ -177,36 +118,100 @@ const content1 = () => {
             >
               *
             </p>
-            ยอมรับเงื่อนไข :
+            Gender
             <Form.Item
-              style={{ marginLeft: "5px" }}
-              name="switch"
+              style={{ margin: 0 }}
+              name="radio-group"
               rules={[
                 {
-                  validator(_, value) {
-                    if (value) {
-                      return Promise.resolve();
-                    } else {
-                      return Promise.reject(
-                        new Error("Please turn on switch to accept")
-                      );
-                    }
-                  },
+                  required: true,
+                  message: "Please selet your Gender",
                 },
               ]}
             >
-              <Switch
-                style={{
-                  marginLeft: "10px",
-                }}
-                checkedChildren
-                unCheckedChildren
-                onChange={onChange3}
-              />
+              <Radio.Group
+                style={{ paddingLeft: "10px" }}
+                onChange={onChange}
+                value={value}
+              >
+                <Radio value={1}>ชาย</Radio>
+                <Radio value={2}>หญิง</Radio>
+              </Radio.Group>
             </Form.Item>
           </div>
+
+          <div style={{ textAlign: "left", marginTop: "10px" }}>งานอดิเรก</div>
+          <div style={{ textAlign: "left", marginTop: "5px" }}>
+            <Checkbox onChange={onCheckAllChange} checked={checkAll}>
+              เลือกทั้งหมด
+            </Checkbox>
+            <Divider />
+            <CheckboxGroup
+              options={plainOptions}
+              value={checkedList}
+              onChange={onChange2}
+            />
+            <Checkbox
+              checked={componentDisabled}
+              onChange={(e) => setComponentDisabled(e.target.checked)}
+            >
+              อื่นๆ
+            </Checkbox>
+            <Form disabled={!componentDisabled}>
+              <Form.Item>
+                <Input placeholder="ระบุ" />
+              </Form.Item>
+            </Form>
+            <div
+              style={{
+                textAlign: "left",
+                marginTop: "10px",
+              }}
+            >
+              <p
+                style={{
+                  display: "inline-block",
+                  color: "red",
+                  marginInline: "4px",
+                  fontSize: "14px",
+                  fontFamily: "SimSun, sans-serif",
+                  lineHeight: "1",
+                  content: "*",
+                }}
+              >
+                *
+              </p>
+              ยอมรับเงื่อนไข :
+              <Form.Item
+                style={{ marginLeft: "5px" }}
+                name="switch"
+                rules={[
+                  {
+                    validator(_, value) {
+                      if (value) {
+                        return Promise.resolve();
+                      } else {
+                        return Promise.reject(
+                          new Error("Please turn on switch to accept")
+                        );
+                      }
+                    },
+                  },
+                ]}
+              >
+                <Switch
+                  style={{
+                    marginLeft: "10px",
+                  }}
+                  checkedChildren
+                  unCheckedChildren
+                  onChange={onChange3}
+                />
+              </Form.Item>
+            </div>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

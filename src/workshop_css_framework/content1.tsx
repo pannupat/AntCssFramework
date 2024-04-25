@@ -1,9 +1,19 @@
 import ContentStep from "../component/ContentStep";
 import { Form, Input } from "antd";
+import { motion } from "framer-motion";
 
 const content1 = () => {
   return (
-    <ContentStep gap={24} title="General">
+    <motion.div
+      title="General"
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+      }}
+    >
       <div>
         <div style={{ display: "flex", alignItems: "center" }}>
           <p
@@ -54,7 +64,7 @@ const content1 = () => {
           <Input.Password />
         </Form.Item>
       </div>
-    </ContentStep>
+    </motion.div>
   );
 };
 
