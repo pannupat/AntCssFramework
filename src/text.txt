@@ -1,5 +1,16 @@
 import React, { ReactNode, useState } from "react";
-import { Steps, StepProps, Button, Row, Col, Form, message } from "antd";
+import {
+  Typography,
+  Flex,
+  Steps,
+  StepProps,
+  Button,
+  Row,
+  Col,
+  Form,
+  message,
+} from "antd";
+import type { FormProps } from "antd";
 import Page1 from "./workshop_css_framework/content1";
 import Page2 from "./workshop_css_framework/content2";
 import Page3 from "./workshop_css_framework/content3";
@@ -19,7 +30,7 @@ interface Contentall extends StepProps {
   content?: ReactNode;
 }
 const App: React.FC = () => {
-  const [current, setCurrent] = useState<number>(0);
+  const [current, setCurrent] = useState(0);
   const [form] = Form.useForm();
   const contentItem: Contentall[] = [
     { content: <Page1 /> },
@@ -33,6 +44,9 @@ const App: React.FC = () => {
 
   const prev = () => {
     setCurrent((prev) => prev - 1);
+  };
+  const done = () => {
+    alert("Success");
   };
 
   // const items = steps.map(() => ({}));
@@ -70,18 +84,17 @@ const App: React.FC = () => {
             Sign up From
           </div>
           <Steps current={current} items={contentItem} responsive={false} />
+          <div style={{ alignItems: "center" }}>
+            {contentItem[current].content}
+          </div>
           <Form
             form={form}
             onFinish={() => {
               if (contentItem.length - 1 !== current) {
-                next();
-              } else message.success("Sign Up complete!");
+              } else done();
             }}
+            // layout="veryical"
           >
-            <div style={{ alignItems: "center" }}>
-              {contentItem[current].content}
-            </div>
-
             <Form.Item style={{ margin: "0" }}>
               <Row gutter={10} style={{ marginTop: 24 }}>
                 {current > 0 && (
@@ -118,7 +131,7 @@ const App: React.FC = () => {
                       htmlType="submit"
                       block
                       style={{ backgroundColor: "#eb2f96", color: "white" }}
-                      // onClick={() => message.success("Processing complete!")}
+                      onClick={() => message.success("Processing complete!")}
                     >
                       Done
                     </Button>
