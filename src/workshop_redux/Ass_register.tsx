@@ -214,23 +214,25 @@ const Ass_register = () => {
           <h2 className="text-[30px] text-center font-extrabold ">
             ข้อมูลจาก Reducer
           </h2>
-          <div className="flex *:mt-10 justify-center ">
-            <div className="head">
+          <div className="data text-black flex flex-col">
+            <div className="flex">
               <p className="font-bold">Username : </p>
-              <p className="font-bold">Email : </p>
-              <p className="font-bold">Password : </p>
-            </div>
-            <div className="data text-black">
               <p className="pl-3">
                 {registerState.username !== ""
                   ? registerState.username
                   : "ยังไม่มีข้อมูล"}
               </p>
+            </div>
+            <div className="flex">
+              <p className="font-bold">Email : </p>
               <p className="pl-3">
                 {registerState.email !== ""
                   ? registerState.email
                   : "ยังไม่มีข้อมูล"}
               </p>
+            </div>
+            <div className="flex">
+              <p className="font-bold">Password : </p>
               <p className="pl-3">
                 {registerState.password !== ""
                   ? registerState.password
