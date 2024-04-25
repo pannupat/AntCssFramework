@@ -46,7 +46,7 @@ const App: React.FC = () => {
         animate={{ rotate: 360, scale: 1 }}
         transition={{
           type: "spring",
-          stiffness: 260,
+          stiffness: 160,
           damping: 20,
         }}
       >
