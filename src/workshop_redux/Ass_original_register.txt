@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { enterRegister, clearForm } from "../store/slice/registerSlice";
 import { RootState } from "../store/store";
 import { useEffect } from "react";
-import { decrement, increment } from "../store/slice/counterSlice";
-
+import vite from "./img/vite.png";
+import react from "./img/react.png";
 const Ass_register = () => {
   const registerState = useSelector((state: RootState) => state.register);
   const dispatch2 = useDispatch();
@@ -57,22 +57,25 @@ const Ass_register = () => {
               display: "flex",
               flexDirection: "column",
               width: "100%",
-              maxWidth: "820px",
-              backgroundColor: "white",
+              maxWidth: "420px",
               padding: "40px",
               borderRadius: "10px",
             }}
           >
+            <div className="flex flex-row justify-between pl-10 pr-10 ">
+              <img className="w-28 " src={vite} alt="" />
+              <img className="w-28" src={react} alt="" />
+            </div>
             <div
               style={{
                 textAlign: "center",
                 paddingBottom: "20px",
-                fontSize: "30px",
+                fontSize: "50px",
                 fontWeight: "bolder",
-                color: "black",
+                color: "white",
               }}
             >
-              Sign up From
+              Vite & React
             </div>
 
             <Form form={form} onFinish={onFinish}>
@@ -91,6 +94,7 @@ const Ass_register = () => {
                     style={{
                       display: "flex",
                       alignItems: "center",
+                      color: "white",
                     }}
                   >
                     <p
@@ -118,7 +122,7 @@ const Ass_register = () => {
                       },
                     ]}
                   >
-                    <Input />
+                    <Input className="bg-gray-400" />
                   </Form.Item>
                 </div>
                 <div>
@@ -126,6 +130,7 @@ const Ass_register = () => {
                     style={{
                       display: "flex",
                       alignItems: "center",
+                      color: "white",
                     }}
                   >
                     <p
@@ -154,7 +159,7 @@ const Ass_register = () => {
                       },
                     ]}
                   >
-                    <Input />
+                    <Input className="bg-gray-400" />
                   </Form.Item>
                 </div>
 
@@ -162,6 +167,7 @@ const Ass_register = () => {
                   style={{
                     display: "flex",
                     alignItems: "center",
+                    color: "white",
                   }}
                 >
                   <p
@@ -189,71 +195,48 @@ const Ass_register = () => {
                     },
                   ]}
                 >
-                  <Input.Password />
+                  <Input.Password className="bg-gray-400 " />
                 </Form.Item>
 
                 <Form.Item className="flex justify-center pt-10">
                   <Button
-                    className="w-40 text-white self-center bg-teal-500 hover:bg-black hover:text-white"
+                    className=" w-[340px] text-white self-center bg-gray-500 hover:bg-black hover:text-white"
                     htmlType="submit"
                   >
                     Register
                   </Button>
                 </Form.Item>
-                <Form.Item className="flex justify-center ">
-                  <Button
-                    onClick={() => onReset()}
-                    className="w-40 text-white self-center bg-teal-500 hover:bg-black hover:text-white"
-                  >
-                    Clear
-                  </Button>
-                </Form.Item>
               </motion.div>
             </Form>
           </div>
-          <div className="mt-10">
-            <button
-              className="w-32 p-[5px] bg-green-800 text-white cursor-pointer border-2 rounded-lg"
-              aria-label="Increment value"
-              onClick={() => dispatch2(increment())}
-            >
-              Increment
-            </button>
-            <span className="pl-5 pr-5 text-white pt-1 font-extrabold text-2xl">
-              {count}
-            </span>
-            <button
-              className=" w-32 p-[8px] bg-red-800 text-white cursor-pointer border-2 rounded-lg"
-              aria-label="Decrement value"
-              onClick={() => dispatch2(decrement())}
-            >
-              Decrement
-            </button>
-          </div>
         </div>
-        <div className="p-10 bg-white rounded-md w-96 h-64  ">
+        <div className="p-10 bg-white rounded-md w-96">
           <h2 className="text-[30px] text-center font-extrabold ">
-            User Register
+            ข้อมูลจาก Reducer
           </h2>
-          <div className="flex *:mt-10 justify-center ">
-            <div className="head">
+          <div className="data text-black flex flex-col">
+            <div className="flex pt-10">
               <p className="font-bold">Username : </p>
-              <p className="font-bold">Email : </p>
-              <p className="font-bold">Password : </p>
-            </div>
-            <div className="data text-green-500">
               <p className="pl-3">
                 {registerState.username !== ""
                   ? registerState.username
-                  : "Not data"}
+                  : "ยังไม่มีข้อมูล"}
               </p>
+            </div>
+            <div className="flex  ">
+              <p className="font-bold">Email : </p>
               <p className="pl-3">
-                {registerState.email !== "" ? registerState.email : "Not data"}
+                {registerState.email !== ""
+                  ? registerState.email
+                  : "ยังไม่มีข้อมูล"}
               </p>
+            </div>
+            <div className="flex">
+              <p className="font-bold">Password : </p>
               <p className="pl-3">
                 {registerState.password !== ""
                   ? registerState.password
-                  : "Not data"}
+                  : "ยังไม่มีข้อมูล"}
               </p>
             </div>
           </div>

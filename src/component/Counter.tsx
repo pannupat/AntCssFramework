@@ -13,7 +13,7 @@ function Counter() {
         aria-label="Increment value"
         onClick={() => dispatch(increment())}
       >
-        Increment
+          Increment
       </button>
       <span className="pl-5 pr-5 text-white pt-1 font-extrabold text-2xl">
         {count}

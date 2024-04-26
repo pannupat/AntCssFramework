@@ -84,17 +84,19 @@ const App: React.FC = () => {
             Sign up From
           </div>
           <Steps current={current} items={contentItem} responsive={false} />
-          <div style={{ alignItems: "center" }}>
-            {contentItem[current].content}
-          </div>
+
           <Form
             form={form}
             onFinish={() => {
               if (contentItem.length - 1 !== current) {
-              } else done();
+                next();
+              } else message.success("Processing complete!");
             }}
             // layout="veryical"
           >
+            <div style={{ alignItems: "center" }}>
+              {contentItem[current].content}
+            </div>
             <Form.Item style={{ margin: "0" }}>
               <Row gutter={10} style={{ marginTop: 24 }}>
                 {current > 0 && (
@@ -131,7 +133,6 @@ const App: React.FC = () => {
                       htmlType="submit"
                       block
                       style={{ backgroundColor: "#eb2f96", color: "white" }}
-                      onClick={() => message.success("Processing complete!")}
                     >
                       Done
                     </Button>
