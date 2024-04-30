@@ -1,8 +1,5 @@
 import { Form, Input } from "antd";
 import { motion } from "framer-motion";
-import registerSlice from "../store/slice/registerSlice";
-import { useSelector, useDispatch } from "react-redux";
-import { enterRegister } from "../store/slice/registerSlice";
 
 const content1 = () => {
   return (

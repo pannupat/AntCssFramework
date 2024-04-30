@@ -10,18 +10,28 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ionic/react": "^8.0.1",
     "@reduxjs/toolkit": "^2.2.3",
     "antd": "^5.16.4",
     "axios": "^1.6.8",
     "framer-motion": "^11.1.7",
+    "ionicons": "^7.3.1",
     "react": "^18.2.0",
+    "react-animated-3d-card": "^1.0.2",
+    "react-card-flip": "^1.2.2",
     "react-dom": "^18.2.0",
+    "react-icons": "^5.1.0",
+    "react-ionicons": "^1.4.6",
     "react-redux": "^9.1.1",
-    "react-router-dom": "^6.23.0"
+    "react-router-dom": "^6.23.0",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^6.8.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "@types/react-slick": "^0.23.13",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react-swc": "^3.5.0",

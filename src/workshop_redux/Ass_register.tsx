@@ -1,10 +1,10 @@
 import { Button, Form, Input } from "antd";
 import { motion } from "framer-motion";
-import { useSelector, useDispatch } from "react-redux";
 import { enterRegister, clearForm } from "../store/slice/registerSlice";
 import { RootState } from "../store/store";
 import { useEffect } from "react";
 import { decrement, increment } from "../store/slice/counterSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Ass_register = () => {
   const registerState = useSelector((state: RootState) => state.register);
