@@ -9,7 +9,7 @@ export default defineConfig({
   
   server:{
     open:true,
-    port:9000,
+    port:8800,
     proxy:{
       '/api':{
         target: 'http://localhost.9000',

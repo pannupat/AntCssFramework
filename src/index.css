@@ -12,9 +12,18 @@
 }
 
 :root {
-  --primary: #6a59ff;
-  --white: #ffffff;
-  --bg: #f5f5f5;
+  background: rgb(126, 49, 208);
+  background: linear-gradient(
+    90deg,
+    rgba(126, 49, 208, 1) 4%,
+    rgba(182, 33, 176, 1) 11%,
+    rgba(182, 33, 176, 1) 38%,
+    rgba(154, 72, 178, 1) 50%,
+    rgba(64, 60, 187, 1) 62%,
+    rgba(61, 90, 212, 1) 88%,
+    rgba(34, 139, 217, 1) 95%
+  );
+  /* background-color: #222224; */
 }
 
 html {

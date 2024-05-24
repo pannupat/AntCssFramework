@@ -1,10 +1,10 @@
 import { Button, Form, Input } from "antd";
 import { motion } from "framer-motion";
+import { useSelector, useDispatch } from "react-redux";
 import { enterRegister, clearForm } from "../store/slice/registerSlice";
 import { RootState } from "../store/store";
 import { useEffect } from "react";
 import { decrement, increment } from "../store/slice/counterSlice";
-import { useDispatch, useSelector } from "react-redux";
 
 const Ass_register = () => {
   const registerState = useSelector((state: RootState) => state.register);
@@ -57,7 +57,7 @@ const Ass_register = () => {
               display: "flex",
               flexDirection: "column",
               width: "100%",
-              maxWidth: "820px",
+              maxWidth: "320px",
               backgroundColor: "white",
               padding: "40px",
               borderRadius: "10px",
@@ -213,7 +213,7 @@ const Ass_register = () => {
           </div>
           <div className="mt-10">
             <button
-              className="w-32 p-[5px] bg-green-800 text-white cursor-pointer border-2 rounded-lg"
+              className="w-42 p-[5px] bg-green-800 text-white cursor-pointer border-2 rounded-lg"
               aria-label="Increment value"
               onClick={() => dispatch2(increment())}
             >
@@ -223,7 +223,7 @@ const Ass_register = () => {
               {count}
             </span>
             <button
-              className=" w-32 p-[8px] bg-red-800 text-white cursor-pointer border-2 rounded-lg"
+              className=" w-42 p-[8px] bg-red-800 text-white cursor-pointer border-2 rounded-lg"
               aria-label="Decrement value"
               onClick={() => dispatch2(decrement())}
             >
@@ -231,7 +231,7 @@ const Ass_register = () => {
             </button>
           </div>
         </div>
-        <div className="p-10 bg-white rounded-md w-96 h-64  ">
+        <div className="p-10 bg-white  rounded-md w-[400px]">
           <h2 className="text-[30px] text-center font-extrabold ">
             User Register
           </h2>
